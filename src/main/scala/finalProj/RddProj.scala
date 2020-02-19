@@ -81,6 +81,7 @@ object RddProj extends App {
   //***************** 1)  top 10 product sold in August **********************
   val q1 =
     rdd.filter(r => r.CalendarDate.matches("\\d{4}-08-\\d{2}"))
+    //sum of products sold
       .map(r => (r.ProductName, 1))
         .reduceByKey(_+_)
 
